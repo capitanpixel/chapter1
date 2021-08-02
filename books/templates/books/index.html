@@ -1,0 +1,14 @@
+{% extends "books/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="index">
+<h1 class="chapter1">Chapter 1</h1>
+<h3><span class="chapter1">Chapter 1 </span>is a free site dedicated to new writers from Argentina that want to share the first chapter of theirs books</h3> 
+<h3>Register and upload your new stories ! </h4>
+
+<div id="discover">
+    <button type="button" class="btn btn-outline-warning btn-lg"><a href="{% url 'allbooks' %}">Discover new writers!</a></button>
+</div>
+</div>
+{% endblock %}

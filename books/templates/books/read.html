@@ -1,0 +1,51 @@
+{% extends "books/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+        {% for book in book1 %}
+
+    <div id="book" class="card mb-3" style="max-width: 540px;" id="card-listings">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ book.img }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ book.title }} - {{ book.author }}</h5>
+                  <p class="card-text">{{ book.description }}</p>
+                  <a href="{% url 'book' book.id %}"><button class="btn btn-outline-success">Read</button></a>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+{% endfor %}
+    </div>
+    <div class="col-sm-6">
+        {% for book in book2 %}
+
+    <div id="book" class="card mb-3" style="max-width: 540px;" id="card-listings">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ book.img }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ book.title }} - {{ book.author }}</h5>
+                  <p class="card-text">{{ book.description }}</p>
+                  <a href="{% url 'book' book.id %}"><button class="btn btn-outline-success">Read</button></a>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+{% endfor %}
+    </div>
+  </div>
+
+
+{% endblock %}

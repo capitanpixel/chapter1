@@ -1,0 +1,61 @@
+{% extends "books/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4">    	
+			<img src="{{ book.img }}" class="card-img" alt="...">
+			<div class="like mt-3">    
+			    <img data-id="{{book.id}}" id="post-like-{{book.id}}" class="liked"
+			    {% if not request.user in book.read.all %}
+				data-is_read="no"
+			    src="https://img.icons8.com/plasticine/100/000000/bookmark.png"
+			    {% else %}
+			    data-is_read="yes"
+			    src="https://img.icons8.com/plasticine/100/000000/reading.png"
+			    {% endif %}/>
+			    <span id="post-count-{{book.id}}">{{book.read.count}}</span>
+			</div>		
+    </div>
+
+    <div class="col-sm-8">
+    	<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">{{ book.title }} - <a href="{% url 'profile' book.author %}"> {{ book.author }}</a></h5>
+				<p class="card-text">{{ book.description }}</p>
+				<p class="card-text">{{ book.province }}</p>
+				<p class="card-text">{{ book.year }}</p>
+				<p class="card-text">{{ book.chapter_1 }}</p>
+			</div>
+		</div>
+
+		<div class="card-body">
+				
+				{% if user.is_authenticated %}
+					<form action="{% url 'comment' book.id %}" method="POST">
+					{% csrf_token %}
+					<textarea class="form-control" name="comment" placeholder="Add a comment"></textarea>
+					<input class="btn btn-primary" type="submit" value="Send">
+					</form>
+				{% endif %}
+
+				<br>
+
+				{% for c in comments %}
+					<p class="card-text"><strong>{{ c.comment }} </strong><i>({{ c.username }})</i></p>					
+				{% endfor %}
+		</div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,30 @@
+h1, h3 {
+	text-align: center;
+	font-family: 'Chilanka', cursive;
+	margin: 15px;
+}
+
+#discover {
+	text-align: center;
+}
+
+.chapter1 {
+	font-weight: bold;
+}
+
+body {
+	background-color: #FCD2E6;
+}
+
+li a {
+	font-family: 'Chilanka', cursive;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.title {
+	font-family: 'Chilanka', cursive;
+}
+
+.index {
+	margin: 12%;
+}
